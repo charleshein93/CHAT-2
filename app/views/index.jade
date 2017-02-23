@@ -1,0 +1,47 @@
+doctype html
+
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title Chat Simple
+		link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.css")
+	body 
+		
+		div.container
+			div.row
+
+				h1 CHAT SIMPLE
+
+				div.col-xs-4
+
+					h2 NUEVO MENSAJE 
+
+					form(action="")
+						div.form-group
+							label(for="username") Username:
+							input(type="text", id="username", class="form-control", data-bind="value: newUsername")
+						div.form-group
+							label(for="message") Mensaje:
+							textarea(id="message", class="form-control", data-bind="value: newMessage")
+						div.form-group
+							button(type="button", class="btn btn-primary", id="send-message", data-bind="click: sendMessage") Enviar
+
+
+				div.col-xs-8
+					h2 MENSAJES
+					ul(id="messages", data-bind="foreach: messages")
+						li
+							strong(data-bind="text: username + ': '")
+							span(data-bind="text: body")
+
+	script(src="/bower_components/jquery/dist/jquery.js")
+	script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+	script(src="/bower_components/knockout/dist/knockout.js")
+	script(src="/socket.io/socket.io.js")
+	
+
+	//SCRIPT DE LA APLICACION
+
+	script(src="js/app.js")
+
+		
